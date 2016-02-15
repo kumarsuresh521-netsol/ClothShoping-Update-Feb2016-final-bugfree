@@ -1,0 +1,24 @@
+  <ion-popover-view>
+        <ion-content ng-controller="userPopOverCtrl as upo">
+          <div class="list" style="width:100%;">
+            <a class="item" href="#" ng-click="upo.userNav('profile')">
+              My Account
+            </a>
+            <a class="item" href="#"  ng-click="upo.userNav('wishlist')">
+              Wishlist
+            </a>
+            <a class="item" href="#"  ng-click="upo.userNav('myorder')">
+              Track Order
+            </a>
+            <a class="item" href="#"  ng-click="upo.userNav('compare')">
+              Compare List
+            </a>
+            <a class="item"  href="#"  ng-hide="upo.isRegisterd" ng-click="upo.userNav('login')">
+              Login
+            </a>
+            <a class="item" href="#"  ng-show="upo.isRegisterd" ng-click="upo.userNav('logout')">
+              Logout
+            </a>
+          </div>
+        </ion-content>
+      </ion-popover-view>

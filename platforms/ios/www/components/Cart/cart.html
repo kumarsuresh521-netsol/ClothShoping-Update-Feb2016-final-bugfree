@@ -1,0 +1,52 @@
+<ion-view view-title="Cart" ng-controller="cartCtrl as cc">
+    <ion-nav-title >
+        <a ui-sref="app.banner" href="javascript:;" ><img src="img/icon-small.png" class="appLogo"/></a>
+  </ion-nav-title>
+  <ion-nav-buttons side="right">
+<!-- User Section -->
+    <div class="searchBar" >
+      <i class="icon ion-android-more-vertical" ng-click="popover.show($event)" style="float:right;padding:0px 15px;"></i>
+      <i class="icon ion-android-cart" style="float:right;padding:0px 15px;"><span class="badge badge-assertive cbadge" ng-if="cc.cartTotal" style="margin-left:0px!important;">{{cc.cartTotal}}</span></i>
+    </div>
+</ion-nav-buttons>
+  <ion-content  padding="true" class="has-header" scroll="true">
+    <div class="bar bar-header bar-dark">
+      <h1 class="title">CART</h1>
+    </div>
+<div style="width:100%; height:50px;"></div>
+<div class="cart" style="margin-bottom:55px;">
+  <div class="card" ng-if="cc.cartTotal == 0">
+    <h4 style="text-align:center;">No Products On Cart.</h4>
+  </div>
+      <div class="card" ng-if="cc.cartTotal > 0" ng-repeat="x in cc.cartProducts">
+        <a class="item item-thumbnail-left" href="#" style="min-height:120px;">
+              <img src="img/no-thumb.png" ng-src="{{x.small_image}}"/>
+              <button style="position: absolute; margin: 75px 0 0 -100px; font-size: 12px; " class="button button-clear button-assertive" ng-click="cc.addToWishlist({{x.product_id}})"> Add to Wishlist </button>
+             <!-- <i style="position: absolute; margin: -5px 0 0 -88px; font-size: 28px;" class="icon ion-heart assertive" ng-click="cc.addToWishlist({{x.product_id}})"></i> -->
+               <i style="float: right;" class="icon ion-close" ng-click="cc.deleteProductNew({{x.product_id}})"></i> 
+
+              <!-- <i style="float: right;" class="icon ion-close" ></i> -->
+              <h2>{{x.name}}</h2>
+              <p ng-if="x.options" ng-repeat="y in x.options"><b>{{y.label}} :</b> {{y.value | uppercase}}</p>
+                <div class="price" style="loat: LEFT; font-size: 20px;font-weight: 900;color: #6FD0D6;margin: 5px 0px 20px 0;">{{x.price | currency}}</div>
+                 <div class="pull-left cartQuantity" style="margin-top: 15px;">
+                    <i class="icon ion-plus icon-square" ng-click="cc.myquantity({{x.product_id}},'1')"></i> <span> &nbsp;{{x.qty}} &nbsp; </span> <i class="icon ion-minus icon-square" ng-click="cc.myquantity({{x.product_id}}, '0')"></i>
+                    <div class="price" style="float:right; ">{{x.subTotal | currency}}</div>
+                </div>   
+         </a>
+       </div>
+       <button class="button button-small button-positive" style="margin-top:5px;" ng-click="cc.ApplyCoupan();"> Use Coupon </button>
+</div>
+    
+  </ion-content>
+  <ion-footer-bar ng-if="cc.cartTotal > 0">
+    <div class="tabs" style="background:#000; color:#fff; width:100%; text-align:center; margin:0 0 0 -5px; font-size:22px; font-weight:600;">
+        <div class="" style="float:left;width:60%;">
+            <p style="margin:0px;"><b style="float:left;">Total </b><span ng-if="cc.cartTotal" style="float:left;font-size: 16px;"> ({{cc.cartTotal}}) </span> <span style="font-weight:600; font-size:16px;">{{cc.cartProducts.grandTotal | currency}}</span></p> 
+        </div>
+        <div style="float:right; margin-top: 5px;">
+            <button class="button button-small button-assertive icon-right ion-chevron-right"  style="line-height: 36px;"ng-click="cc.GoToCheckOut()">Checkout</button>
+        </div>
+    </div>
+  </ion-footer-bar>
+</ion-view>

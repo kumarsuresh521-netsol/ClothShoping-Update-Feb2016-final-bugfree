@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width"/>
+    <meta http-equiv="Content-Security-Policy"/>
+    <title>Cloth Shopping</title>
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    
+   <link href="components/Home/style.css" rel="stylesheet">
+   <link href="css/style.css" rel="stylesheet">
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+   
+     <script src="js/app.module.js"></script>
+    <script src="js/app.js"></script>
+
+    <!--  Login  Component -->  
+
+    <script src="components/Login/config.route.js"></script>     
+    <script src="components/Login/loginCtrl.js"></script>
+    <script src="components/Login/forgotPasswordCtrl.js"></script>
+    <script src="components/Login/loginSrvc.js"></script>
+     
+    <script src="components/Home/config.route.js"></script>     
+    <script src="components/Home/homeCtrl.js"></script>
+    <script src="components/Home/homeSrvc.js"></script>  
+
+    <script src="components/Menu/config.route.js"></script>     
+    <script src="components/Menu/menuCtrl.js"></script>    
+    <script src="components/Menu/menuSrvc.js"></script>  
+      
+    <script src="components/Banner/config.route.js"></script>     
+    <script src="components/Banner/bannerCtrl.js"></script>   
+    <script src="components/Banner/userPopOverCtrl.js"></script>  
+    <script src="components/Banner/bannerSrvc.js"></script> 
+    
+    <!--   SignUp  Component -->  
+    
+    <script src="components/SignUp/config.route.js"></script>       
+    <script src="components/SignUp/signupCtrl.js"></script>
+    <script src="components/SignUp/signupSrvc.js"></script> 
+
+    <!--   ProductListing  Component -->  
+    <script src="components/ProductListing/config.route.js"></script>       
+    <script src="components/ProductListing/prodListingCtrl.js"></script>
+    <script src="components/ProductListing/prodFilterCtrl.js"></script>
+    <script src="components/ProductListing/prodListingSrvc.js"></script>  
+
+    <!--   Filter  Component -->  
+     
+    <script src="components/Filter/config.route.js"></script>       
+    <script src="components/Filter/filterCtrl.js"></script>
+    <script src="components/Filter/filterSrvc.js"></script> 
+
+    <!-- Cart -->
+    <script src="components/Cart/config.route.js"></script> 
+    <script src="components/Cart/cartCtrl.js"></script>  
+    <script src="components/Cart/cartSrvc.js"></script>
+
+    <!-- Checkout -->
+    <script src="components/Checkout/config.route.js"></script> 
+    <script src="components/Checkout/checkoutCtrl.js"></script>
+    <script src="components/Checkout/paymentCtrl.js"></script>       
+    <script src="components/Checkout/shippingCtrl.js"></script> 
+    <script src="components/Checkout/orderReviewCtrl.js"></script> 
+    <script src="components/Checkout/orderSuccessCtrl.js"></script> 
+    <script src="components/Checkout/checkoutSrvc.js"></script>
+     
+     <!-- Product -->   
+    <script src="components/Product/config.route.js"></script>       
+    <script src="components/Product/productCtrl.js"></script>
+    <script src="components/Product/productCompareCtrl.js"></script>
+    <script src="components/Product/productSrvc.js"></script> 
+    
+     <!-- Profile Component -->
+    <script src="components/Profile/config.route.js"></script>     
+    <script src="components/Profile/profileCtrl.js"></script>
+    <script src="components/Profile/orderCtrl.js"></script>
+    <script src="components/Profile/changePasswordCtrl.js"></script>
+    <script src="components/Profile/orderDetailCtrl.js"></script>
+    <script src="components/Profile/wishlistCtrl.js"></script>
+    <script src="components/Profile/profileSrvc.js"></script>
+
+
+  </head>
+  <body ng-app="myApp" class="platform-ios platform-cordova platform-webview">
+    <ion-nav-bar class="bar-positive" animation="nav-title-slide-ios7">
+        <ion-nav-back-button></ion-nav-back-button>
+    </ion-nav-bar> 
+    <ion-nav-view></ion-nav-view>
+  </body>
+</html>

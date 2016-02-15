@@ -1,0 +1,115 @@
+
+<ion-view title="Filter" ng-controller="prodListingCtrl as pc">
+    <ion-nav-title >
+        <a ui-sref="app.banner" href="javascript:;" ><img src="img/icon-small.png" class="appLogo"/></a>
+    </ion-nav-title>
+      <ion-nav-buttons side="right">
+    <div class="searchBar" >
+        <i ui-sref="app.cart" class="icon ion-android-cart"><span class="badge badge-assertive cbadge" ng-if="pc.cartTotal">{{pc.cartTotal}}</span></i>
+    </div>
+</ion-nav-buttons>
+  <ion-content padding="true" class="has-header" style="background-color:#444444;">
+    <div class="bar bar-header bar-dark">
+         <h1 class="title">FILTER</h1>
+        <button ui-sref="app.prodListing" class="button button clear ion-arrow-swap"></button>
+    </div>
+  <div style="float: left;width: 100%;">
+        <div class="filer-main">
+            <a ng-click="pc.showPrice()" class="filter-options">Price</a>
+           <!-- <a ng-click="pc.showList()" class="filter-options">Manufacturer</a>
+            <a ng-click="pc.showColor()" class="filter-options">Color</a> -->
+
+        </div>
+        <div class="filter-sub">
+          <div class="list">
+            <ul class="list" ng-show="pc.priceShow" >
+              <li class="item item-checkbox filter-list">
+                <div class="customised-filter">$0.00 - $99.00</div>
+                 <label class="checkbox">
+                   <input type="radio" name="Price" value="99" ng-click="pc.myclick(-100,1)">
+                 </label>
+              </li>
+
+              <li class="item item-checkbox filter-list">
+                <div class="customised-filter">$100.00 - $199.00</div>
+                 <label class="checkbox">
+                   <input type="radio" name="Price" value="199">
+                 </label>
+              </li>
+
+              <li class="item item-checkbox filter-list">
+                <div class="customised-filter">$200.00 - $299.00</div>
+                 <label class="checkbox">
+                   <input type="radio" name="Price" value="299">
+                 </label>
+              </li>
+
+                <li class="item item-checkbox filter-list">
+                <div class="customised-filter">$300.00 and above</div>
+                 <label class="checkbox">
+                   <input type="radio" name="Price" value="399">
+                 </label>
+              </li>
+            </ul>
+
+            <!-- Hidden list (Manufacturer) -->
+            <!--
+            <ul class="list" ng-show="pc.showMe">
+              <li class="item item-checkbox filter-list">
+                <div class="customised-filter">Addidas</div>
+                 <label class="checkbox">
+                   <input type="radio" name="Manufacturer" value="Addidas">
+                 </label>
+              </li>
+
+              <li class="item item-checkbox filter-list">
+                <div class="customised-filter">Nike</div>
+                 <label class="checkbox">
+                   <input type="radio" name="Manufacturer" value="Nike">
+                 </label>
+              </li>
+
+              <li class="item item-checkbox filter-list">
+                <div class="customised-filter">Palaroid</div>
+                 <label class="checkbox">
+                   <input type="radio" name="Manufacturer" value="Palaroid">
+                 </label>
+              </li>
+
+                <li class="item item-checkbox filter-list">
+                <div class="customised-filter">Reebok</div>
+                 <label class="checkbox">
+                   <input type="radio" name="Manufacturer" value="Reebok">
+                 </label>
+              </li>
+            </ul>
+ -->
+             <!-- Hidden list (Color) -->
+<!--
+            <ul class="list" ng-show="pc.colorShow">
+              <li class="item item-checkbox filter-list">
+                <div class="customised-filter">Black</div>
+                 <label class="checkbox">
+                   <input type="radio" name="Color" value="Black">
+                 </label>
+              </li>
+
+              <li class="item item-checkbox filter-list">
+                <div class="customised-filter">Blue</div>
+                 <label class="checkbox">
+                   <input type="radio" name="Color" value="Blue">
+                 </label>
+              </li>
+
+              <li class="item item-checkbox filter-list">
+                <div class="customised-filter">White</div>
+                 <label class="checkbox">
+                   <input type="radio" name="Color" value="White">
+                 </label>
+              </li>
+            </ul> -->
+            </div>
+        </div>   
+    </div>    
+  </ion-content>
+</ion-view>

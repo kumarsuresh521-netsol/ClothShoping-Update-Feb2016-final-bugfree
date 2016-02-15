@@ -1,0 +1,111 @@
+<ion-view view-title="Product" ng-controller="productCtrl as pd">
+    <ion-nav-title >
+        <a ui-sref="app.banner" href="javascript:;" ><img src="img/icon-small.png" class="appLogo"/></a>
+  </ion-nav-title>
+  <ion-nav-buttons side="right">
+    <div class="searchBar" >
+      <i class="icon ion-android-more-vertical" ng-click="popover.show($event)" style="float:right;padding:0px 15px;"></i>
+      <i ng-click="pd.goToCart()" class="icon ion-android-cart" style="float:right;padding:0px 15px;"><span class="badge badge-assertive cbadge" ng-if="pd.cartTotal" style="margin-left:0px!important;">{{pd.cartTotal}}</span></i>
+    </div>
+</ion-nav-buttons>
+    
+  <ion-content>
+
+  <div class="product_detail">
+    <div class="list card">
+    <!-- Image Slider -->
+    <div class="discount"  ng-if="pd.discount">
+        <span>{{pd.discount | number : 0}}% </span><br />
+        <span>Off</span>
+    </div>
+    
+    <ion-slide-box on-slide-changed="change(index)">
+      <ion-slide >
+        <img src="img/no-thumb.png" ng-src="{{pd.pdata.productimage[0].url}}"/>
+      </ion-slide>
+      <ion-slide>
+        <img src="img/no-thumb.png" ng-src="{{pd.pdata.productimage[1].url}}"/>
+      </ion-slide>
+      <ion-slide>
+        <img src="img/no-thumb.png"  ng-src="{{pd.pdata.productimage[2].url}}" />
+      </ion-slide>
+    </ion-slide-box>
+    
+    <!-- Product Name, Likes -->
+    <div ng-if="pd.pdata"class="prodetail" ng-model="pd.pdata" style="float: left; width: 100%;">
+        <h4 style="width:100%; text-align:center;">{{pd.pdata.name}}</h4>
+        <h6 style="width:100%;" ng-if="pd.pdata.inventory_data[0].is_in_stock == 1">Availability: <label style="color:green">In Stock</label></h6>
+        <h6 style="width:100%; " ng-if="pd.pdata.inventory_data[0].is_in_stock == 0">Availability: <label style="color:red">Our Of Stock</label></h6>
+        <h6 style="width:100%; " ng-if="pd.pdata.inventory_data[0].is_in_stock == 1"><label style="color:#777">Only {{pd.pdata.inventory_data[0].qty | number}} Left.</label></h6>
+       <div class="price" ng-if="pd.pdata.special_price" style="text-align: center;"><span class="regularPrice">{{pd.pdata.price | currency}}</span><span class="product_price">{{pd.pdata.special_price | currency}}</span></div>
+       <div class="price" ng-if="!pd.pdata.special_price" style="text-align: center;"><span class="product_price">{{pd.pdata.price | currency}}</span></div>
+    </div>
+    
+    <!-- Product Size -->
+    <div class="list">
+        <div ng-if="pd.pdata.optionid.length > 0" class="prodetail" ng-repeat="x in pd.pdata.optionid">
+            <label class="item item-input item-select">
+            <div class="input-label">
+              <h3>{{x.title}}</h3>
+            </div>
+            <select ng-init="pd[x.title] = pd[x.title] || pd.pdata.optionvalue[x.option_id][0].value_id" name="{{x.title}}" ng-model="pd[x.title]" style="right:5px;" ng-options="y.value_id as y.title.toUpperCase() for y in pd.pdata.optionvalue[x.option_id]">
+            </select>
+          </label>
+        </div>
+    </div>
+<!-- Product Description -->
+    <div class="prodetail">
+        <h5 ng-if="pd.pdata.short_description" style="float: left; width: 100%;">Description</h5>
+        <div ng-bind-html=pd.pdata.short_description class="price_box"></div>
+    </div>
+</div>
+ <!-- Related Products --> 
+  <h3 ng-if="pd.pdata.related_products" style="float:left; margin:0px; width:100%; padding:5px; color:#000; margin-top:10px;background:#fff;">Related Products</h3>
+   <div class="products" style="display: flex; overflow-y: hidden; overflow-x: visible; width:100%; float:left;">
+        <div class="product" ng-repeat="x in pd.pdata.related_products">
+            <div class="product_img"><a href="javascript:;"  ng-click="pd.fetchDetail(x.productid)"><img style="width: 168px !important; height:auto !important;" src="img/no-thumb.png" ng-src="{{x.image}}" /></a></div>
+            <div class="product_name">{{x.name | cut:true:50:' ..'}}</div>
+            <div class="price" ng-if="x.specialprice" style="text-align: center;"><span class="regularPrice">{{x.regularprice | currency}}</span><span class="product_price">{{x.specialprice | currency}}</span></div>
+            <div class="price" ng-if="!x.specialprice" style="text-align: center;"><span class="product_price">{{x.regularprice | currency}}</span></div>
+        </div>
+   </div>
+<!-- Related Products End --> 
+
+ <!-- Recommended Products --> 
+  <h3 ng-if="pd.pdata.recommended_products" style="float:left; margin:0px; width:100%; padding:5px; color:#000; margin-top:10px;background:#fff;">Recommended Products</h3>
+   <div class="products" style="display: flex; overflow-y: hidden; overflow-x: visible; width:100%; float:left;">
+        <div class="product" ng-repeat="x in pd.pdata.recommended_products">
+            <div class="product_img"><a href="javascript:;"  ng-click="pd.fetchDetail(x.productid)"><img style="width: 168px !important; height:auto !important;" src="img/no-thumb.png" ng-src="{{x.image}}" /></a></div>
+            <div class="product_name">{{x.name | cut:true:50:' ..'}}</div>
+            <div class="price" ng-if="x.specialprice" style="text-align: center;"><span class="regularPrice">{{x.regularprice | currency}}</span><span class="product_price">{{x.specialprice | currency}}</span></div>
+            <div class="price" ng-if="!x.specialprice" style="text-align: center;"><span class="product_price">{{x.regularprice | currency}}</span></div>
+        </div>
+   </div>
+<!-- Recommended Products End --> 
+
+  </div>
+
+
+  </ion-content>
+  <ion-footer-bar style="margin: 0 0 0 -5px;">
+    <div class="tabs tabs-icon-top">
+  <!--<a class="tab-item"  ng-click="window.plugins.socialsharing.share('Message, subject, image and link', '{{pd.pdata.name}}', '{{pd.pdata.productimage[0].url}}', '{{pd.pdata.productimage[0].url}}')"> -->
+  <a class="tab-item" ng-click="pd.addToCompare(pd.productid)">
+    <i class="icon ion-fork-repo"></i>
+    Add To Compare
+  </a> 
+  <a class="tab-item" ng-click="pd.addToShare()">
+    <i class="icon ion-android-share-alt"></i>
+    Share
+  </a>
+  <a class="tab-item" ng-click="pd.addToWishlist(pd.productid)">
+    <i class="icon ion-heart"></i>
+    Add To Wishlist
+  </a>
+  <a class="tab-item" ng-click="pd.addToCart(pd.productid)">
+    <i class="icon ion-ios-cart"></i>
+    Add To Cart
+  </a>
+</div>
+    </ion-footer-bar>
+</ion-view>

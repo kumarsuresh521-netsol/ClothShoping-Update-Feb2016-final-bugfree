@@ -1,0 +1,340 @@
+/* Empty. Add your own CSS if you like */
+.link-button
+{
+	text-decoration: underline;
+}
+.HDivider
+{
+	font-size:12px;
+	color:#444;
+	display:inline
+}
+
+/  Product listing /
+.products{
+    float:left;
+    width:100%;
+    margin: 3px;
+}
+
+.products .product{
+    float: left;
+    width:49%;
+}
+
+.product .product_img{
+    text-align:center;
+}
+.product .product_img img{
+    width: 180px !important;
+    height: 190px;
+}
+
+.product .product_name{
+    text-align: center;
+    font-size: 13px;
+    font-weight: 500;
+    color: #737373; 
+}
+
+.product .product_price{
+    text-align: center;
+    font-size: 14px;
+    font-weight: 550;
+    color: #489E4C;  
+}
+
+
+/* ------- SEARCH ----*/
+.searchBar {
+    color: #fff;
+    margin: 0 !important;
+    padding: 0;
+}
+.searchBar .icon {
+    font-size: 28px;
+    line-height: 1.2;
+    padding-right: 6px;
+    padding-left: 6px;
+    color: #fff;
+}
+
+.searchBar .icon {
+    font-size: 28px;
+    line-height: 1.2;
+    padding-right: 6px;
+    padding-left: 6px;
+    color: #fff;
+}
+.searchBar .searchTxt {
+    right: 70px;
+    width: calc(100% - 110px);
+    position: fixed;
+    height: calc(100% - 10px);
+}
+.searchBar.numicons2 .searchTxt {
+    width: calc(100% - 135px);
+}
+.searchBar .searchTxt > .bgdiv {
+    background-color: #aaa;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0.3;
+}
+.searchBar .searchTxt > .bgtxt {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.searchBar .searchTxt input {
+    text-align:center;
+    width: 100%;
+    color: #000;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid #9E9E9E;
+    border-radius: 15px;
+}
+
+.buttn{
+    background:transparent url(../img/6-mens-footwear-SORT.jpg) no-repeat left;
+    border:0;
+}
+
+.item-sort {
+    border-color: #ddd;
+    background-color: #444444;
+    color: #fff;
+    position: relative;
+    z-index: 2;
+    display: block;
+    margin: -1px;
+    padding: 7px;
+    font-size: 13px;
+}
+
+.links{
+color: #fff;
+text-decoration: initial;
+}
+
+Skip to content
+This repository  
+Pull requests
+Issues
+Gist
+ @piyush14g
+ Watch 1
+  Star 0
+  Fork 0 kumarsuresh521-netsol/ShoppingCart
+ Branch: master  ShoppingCart/www/css/style.css
+050237f  22 minutes ago
+@kumarsuresh521-netsol kumarsuresh521-netsol filter, sidemenu
+1 contributor
+RawBlameHistory     201 lines (176 sloc)  3.08 KB
+/* Empty. Add your own CSS if you like */
+.bar.bar-stable{
+    border-width: 0px;
+}
+
+.nav-bar-title img{
+    width:25px;
+    margin:8px 0;
+}
+
+.bar .title.title-left {
+    text-align: center;
+}
+/* Side Menu */
+
+.sidenav{
+   background-color: #666;
+}
+.sidenav .item,.sidenav .item-complex .item-content, .item-radio .item-content{
+    background-color: #666;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 6px;
+    border-width:0px;
+}
+
+.sidenav .item .icon{
+    font-size:24px;
+    font-weight:100;
+}
+
+.sideicon{
+    float: left;
+    width: 49%;
+}
+
+.sideicon .item-content{
+    font-size: 20px !important;
+    text-align: center;
+    line-height: 30px !important;
+    padding: 5px;
+}
+
+/*  Product listing */
+.products{
+    float:left;
+    width:100%;
+    margin: 3px;
+}
+
+.products .product{
+    float: left;
+    width:49%;
+}
+
+.product .product_img{
+    text-align:center;
+}
+.product .product_img img{
+    width: 180px !important;
+    height: 190px;
+}
+
+.product .product_name{
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #737373; 
+}
+
+.product .product_price{
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: #6ABF9C;  
+}
+
+/* ------- SEARCH ----*/
+.searchBar {
+    color: #fff;
+    margin: 0 !important;
+    padding: 0;
+}
+.searchBar .icon {
+    font-size: 28px;
+    line-height: 1.2;
+    padding-right: 6px;
+    padding-left: 6px;
+    color: #fff;
+}
+
+.searchBar .icon {
+    font-size: 28px;
+    line-height: 1.2;
+    padding-right: 6px;
+    padding-left: 6px;
+    color: #fff;
+}
+.searchBar .searchTxt {
+    right: 70px;
+    width: calc(100% - 110px);
+    position: fixed;
+    height: calc(100% - 10px);
+}
+.searchBar.numicons2 .searchTxt {
+    width: calc(100% - 135px);
+}
+.searchBar .searchTxt > .bgdiv {
+    background-color: #aaa;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0.3;
+}
+.searchBar .searchTxt > .bgtxt {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.searchBar .searchTxt input {
+    text-align:center;
+    width: 100%;
+    color: #000;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid #9E9E9E;
+    border-radius: 15px;
+}
+
+/* Product Details */
+.slider-slides img {
+    width: 100%;
+    height: 280px;
+}
+
+.prodetail{
+    float: left;
+    width: 100%;
+    padding: 5px 10px;
+    border-bottom: 2px solid #ddd;
+}
+
+.prodetail h4{
+    float: left;
+    width: 75%;
+}
+
+.prodetail h5{
+    float: left;
+    line-height: 21px;
+    width: 75%;
+}
+
+.prodetail span{
+    float: right;
+    color: #61D1C6;
+    line-height: 40px;
+}
+
+.prodetail .price{
+    float: left;
+    width: 100%;
+    color: #61D1C6;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.prodetail .price_box{
+    float:left;
+    width:100%;
+}
+
+.prodetail .price_box h5{
+    float: left;
+    line-height: 21px;
+    width: 75%;
+}
+
+.prodetail .price_box span {
+    padding: 0px 10px 0px 10px;
+    border: 1px solid #ddd;
+    line-height: 32px;
+    margin-left: 5px;
+    float: left;
+    color: #61D1C6;
+    height: 30px;
+    width: 30px;
+}
+
+.prodetail .price_box p{
+    margin: 0px !important;
+}
+
+
+.item .badge {
+    top: 25px !important;
+    right: 50px !important;
+}
+Status API Training Shop Blog About Pricing
+© 2015 GitHub, Inc. Terms Privacy Security Contact Help

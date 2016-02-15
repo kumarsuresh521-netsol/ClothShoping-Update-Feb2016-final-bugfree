@@ -1,0 +1,66 @@
+<ion-view view-title="Payment" ng-controller="paymentCtrl as phc">
+    <ion-nav-title >
+        <a ui-sref="app.banner" href="javascript:;" ><img src="img/icon-small.png" class="appLogo"/></a>
+  </ion-nav-title>
+    <ion-nav-buttons side="right">
+<!-- User Section -->
+    <div class="searchBar" >
+      <i class="icon ion-android-more-vertical" ng-click="popover.show($event)" style="float:right;padding:0px 15px;"></i>
+    </div>
+</ion-nav-buttons>
+  <ion-content>
+    <div class="bar bar-header bar-dark">
+      <h1 class="title">SHIPPING/PAYMENT METHOD</h1>
+    </div>
+
+    <div class="list" style="top: 43px;">
+      <div class="item item-divider">
+      SHIPPING METHOD
+    </div>
+        <ul class="list">
+          <li class="item item-checkbox" ng-repeat="x in phc.shippingMethod">
+             <label class="checkbox">
+               <input type="radio"  ng-model="phc.shippingm" name="{{x.code}}" value="{{x.code}}" checked="checked" />
+             </label>
+             {{x.carrier_title}}
+          </li>
+        </ul>
+    </div>
+
+    <div class="list" style="top: 43px;">
+      <div class="item item-divider">
+        PAYMENT METHOD
+      </div>
+        <ul class="list">
+          <li class="item item-checkbox" ng-repeat="x in phc.paymentMethod">
+             <label class="checkbox">
+               <input type="radio"  ng-model="phc.paymentm" name="{{x.code}}" value="{{x.code}}" checked="checked" />
+             </label>
+             {{x.title}}
+          </li>
+        </ul>
+    </div>
+
+
+    <!--
+    <div class="list" style="margin-top: 50px;">
+    <div class="card" ng-repeat="x in phc.cartProducts">
+        <a class="item item-thumbnail-left" href="#" >
+              <img src="img/product2.png" />
+              <h2>{{x.name}}</h2>
+              <p>Size: 38 | Color: Brown </p>
+            <div class="price" style="loat: LEFT; font-size: 20px;font-weight: 900;color: #6FD0D6;margin: 5px 0px 20px 0;">{{x.price | currency}}</div>
+             <div class="pull-left" style="margin-top: 15px;">
+                <div class="price" style="float:right; ">{{x.subTotal | currency}}</div>
+            </div>
+         </a>
+    </div>
+        
+    </div> -->
+        
+    
+  </ion-content>
+    <ion-footer-bar>
+    <button class="button button-full button-calm" ng-click="phc.PaymentInfo()"  style="color: #fff;margin:0px;">Continue</button>
+</ion-footer-bar>
+</ion-view>

@@ -1,0 +1,46 @@
+<ion-view view-title="Setting" ng-controller="settingsCtrl as sl">
+<ion-nav-title >
+        <img src="img/icon-small.png" style="height: 36px; width: 36px; margin-top: 4px; "/>
+  </ion-nav-title>
+  <ion-nav-buttons side="right">
+    <div class="searchBar" >
+    <i class="icon ion-android-cart"></i>
+    </div>
+</ion-nav-buttons>
+
+  <ion-content class="forgot">
+    <div class="hero">
+        <h3><a class="title">PROFILE</a></h3>
+        <div class="avatar" style="background-image: url('img/profile1.jpg');"></div>      
+    </div>
+    <div style="width: 100%; height:0px;"></div>
+    <div class="list">
+    
+      <a class="item item-icon-right" ng-model="sl.userShow" ng-click="sl.ShowDiv()">
+        Change Username
+      </a>
+
+      <!--USERNAME Block -->
+
+      <form name="changeUser" novalidate>
+        <div class="list" ng-show="sl.IsVisible">
+          <label class="item item-input item-floating-label" >
+            <span class="input-label">USERNAME</span>
+            <input type="text" ng-model="sl.userName" name="userName" placeholder="Username" required/>
+            <p ng-show="changeUser.userName.$invalid && !changeUser.userName.$pristine && changeUser.userName.$error.required" class="help-block">
+            <span class="min-valid">This is a required field.</span></p>
+          </label>
+            <button class="button button-positive" style="width: 100%" ng-disabled="changeUser.$invalid">Save</button>
+        </div>
+      </form>
+
+      <!--END-->
+    
+      <a class="item item-icon-right" ui-sref="app.password">
+        Change Password
+        <i class="icon ion-arrow-right-c"></i>
+      </a>
+    </div>
+    <div style="width: 100%; height:50px;"></div>
+  </ion-content>
+</ion-view>

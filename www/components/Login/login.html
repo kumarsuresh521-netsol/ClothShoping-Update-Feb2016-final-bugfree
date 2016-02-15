@@ -1,0 +1,27 @@
+<ion-view title="Log In"  hide-nav-bar="true" class="logintitle" ng-controller="loginCtrl as lc">
+    <ion-content padding="false" scroll="true" class="formbk">
+        <div style="width:100%; height:65px;"></div>
+        <a href="javascript:;" ui-sref="app.banner" style='text-align: center; float: left; width: 100% !important;'><img src="img/icon-big.png" style="height: 75px;"/></a>
+        <div class="spacer" style="height:50px;"></div>
+        <div class="spacer main-heading" style="">SIGN IN</div>
+        <div class="spacer" style="height:100px;"></div>
+        <div style="padding:0px 20px">
+                <label class="item item-input">
+                    <i class="icon ion-email placeholder-icon"></i>
+                    <input class="plcwhite" type="email" name="username" ng-model="lc.user.username" placeholder="Email" required>
+                  </label>
+                  <div style="width:100%; height:20px;"></div>
+                  <label class="item item-input">
+                    <i class="icon ion-locked placeholder-icon"></i>
+                    <input class="plcwhite" type="{{lc.ShowPassword}}" ng-model="lc.user.password" name="password" placeholder="Password" required>
+                  </label>
+                <div style="width:100%; height:10px;"></div>
+         <button class="button button-positive button-block" ng-click="lc.userLogin()" style="border-radius:30px;">Sign In</button>
+        </div>
+         <div style="width: 70%; margin: 0 18%;">
+            <button class="button button-dark button-clear button-small link-button" ui-sref="app.forgotPassword" >Forgot Password?</button>
+            <div class="HDivider">|</div>
+            <button class="button button-dark button-clear button-small link-button" ui-sref="app.signup">Sign Up</button>
+         </div>
+    </ion-content>
+</ion-view>

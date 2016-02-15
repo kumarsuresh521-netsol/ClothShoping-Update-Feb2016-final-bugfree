@@ -1,0 +1,59 @@
+<ion-view view-title="My Order" ng-controller="orderCtrl as oc">
+<ion-nav-title >
+        <a ui-sref="app.banner" href="javascript:;" ><img src="img/icon-small.png" class="appLogo"/></a>
+  </ion-nav-title>
+  <ion-nav-buttons side="right">
+    <div class="searchBar" >
+      <i class="icon ion-android-more-vertical" ng-click="popover.show($event)" style="float:right;padding:0px 15px;"></i>
+      <i ng-click="oc.goToCart()" class="icon ion-android-cart" style="float:right;padding:0px 15px;"><span class="badge badge-assertive cbadge" ng-if="oc.cartTotal" style="margin-left:0px!important;">{{oc.cartTotal}}</span></i>
+    </div>
+</ion-nav-buttons>
+  <ion-content class="forgot">
+
+  <div class="tabs-striped tabs-top tabs-background-positive ">
+    <div class="tabs" style="float:left;width:100%;">
+      <a class="tab-item" ui-sref="app.profile">
+        <i class="icon ion-home"></i>
+        Address
+      </a>
+      <a class="tab-item active" ui-sref="app.myorder">
+        <i class="icon ion-star"></i>
+        Order
+      </a>
+      <a class="tab-item"  ui-sref="app.wishlist">
+        <i class="icon ion-heart"></i>
+        Wishlist
+      </a>
+    </div> 
+  </div>
+
+  <!-- Top Heading -->
+ <div class="bar bar-header bar-dark" style="float:left;width:100%;">
+    <h1 class="title">My Order</h1>
+  </div>
+
+  
+
+    <div class="card" ng-show="oc.showMe" style="float:left;width:95%;margin-top:100px; margin-bottom:12px;" ng-if="oc.orderInfo">
+      <div class="row header" style="float:left;width:100%;">
+        <div class="col">Order Id</div>
+        <div class="col">Total Items</div>
+        <div class="col">Grand Total</div>
+        <div class="col"></div>
+      </div>
+    </div>
+
+      <div class="card row"  ng-show="oc.showMe" ng-repeat="x in oc.orderInfo" style="margin-top: -20px;border-bottom: 1px solid #dfdfdf;">
+        <div class="col" style="line-height: 30px;">{{x.increment_id}}</div>
+        <div class="col" style="line-height: 30px;">{{x.total_item_count}}</div>
+        <div class="col" style="line-height: 30px;">{{x.grand_total | currency}}</div>
+        <!--<div class="col"><i class="icon ion-document" style="font-size: 18px;" ng-click="oc.OrderDetail(x.increment_id);"></i></div> -->
+        <div class="col"><a href="#" class="button button-small button-positive" ng-click="oc.OrderDetail(x.increment_id);">View</a></div>
+      </div>
+
+      <p ng-hide="oc.showMe" class="no-record">Sorry! No Record Found.</p> 
+  </ion-content>
+</ion-view>
+
+
+

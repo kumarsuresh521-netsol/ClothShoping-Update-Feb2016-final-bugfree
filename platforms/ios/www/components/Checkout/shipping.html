@@ -1,0 +1,64 @@
+<ion-view view-title="Shipping" ng-controller="shippingCtrl as shc">
+    <ion-nav-title >
+        <a ui-sref="app.banner" href="javascript:;" ><img src="img/icon-small.png" class="appLogo"/></a>
+  </ion-nav-title>
+      <ion-nav-buttons side="right">
+<!-- User Section -->
+    <div class="searchBar" >
+      <i class="icon ion-android-more-vertical" ng-click="popover.show($event)" style="float:right;padding:0px 15px;"></i>
+    </div>
+</ion-nav-buttons>
+  <ion-content style="top:35px; bottom: 15px;">
+    <div class="bar bar-header bar-dark" style="top:-11px;">
+      <h1 class="title">SHIPPING DETAILS</h1>
+    </div>
+    <div class="card list" style="top: 35px; bottom:0px;"  ng-class="{ 'has-error' : checkoutForm.name.$invalid && !checkoutForm.name.$pristine }">
+      <label class="item item-input item-floating-label">
+        <span class="input-label">First Name</span>
+        <input type="text" ng-model="shc.shipping.shipping.firstname" name="firstname" placeholder="First Name" ng-minlength="3" ng-maxlength="15" required/>
+      </label>
+
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Last Name</span>
+        <input type="text" ng-model="shc.shipping.shipping.lastname" name="lastname" placeholder="Last Name" ng-minlength="3" ng-maxlength="15" required />
+     </label>
+
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Address Line 1</span>
+        <input type="text" ng-model="shc.shipping.shipping.street1" name="street1" placeholder="Address Line 1" required/>
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Address Line 2</span>
+        <input type="text" ng-model="shc.shipping.shipping.street2" name="street2" placeholder="Address Line 2" required/>
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">City/Town</span>
+        <input type="text" ng-model="shc.shipping.shipping.city" name="city"  placeholder="City/Town"/>
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">State</span>
+        <input type="text" ng-model="shc.shipping.shipping.region" name="region"  placeholder="State"/>
+      </label>
+      <input type="hidden" ng-model="chc.billing.shipping.country_id" name="country_id"/>
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Country
+        </div>
+        <select name="countary_name" ng-init="shc.shipping.shipping.country_id = shc.shipping.shipping.country_id || 'IN'" ng-model="shc.shipping.shipping.country_id" style="right:5px;" ng-options="x.country_id as x.name for x in shc.shipping.country_list"></select>
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Pin Code</span>
+        <input type="text" ng-model="shc.shipping.shipping.postcode" name="postcode" placeholder="Pin Code"/>
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Phone Number</span>
+        <input type="number" ng-model="shc.shipping.shipping.telephone" name="telephone"  placeholder="Phone Number"/>
+      </label>
+    </div>
+        
+    
+  </ion-content>
+   <ion-footer-bar>
+      <button ng-disabled="shippingForm.$invalid" class="button button-full button-calm" ng-click="shc.ShippingInfo()" style="color: #fff;margin:0px;">CONTINUE</button>
+  </ion-footer-bar>
+</ion-view>

@@ -1,0 +1,36 @@
+<ion-view view-title="TRACK ORDERS">
+  <ion-content class="forgot">
+  <form name="trackOrder" ng-controller="trackCtrl as tc" novalidate>
+    <div class="hero">
+        <h3><a class="title">Settings</a></h3>
+        <div> <a class="avatar" href="#"><img src="img/profile1.jpg"></a></div>      
+    </div>
+    <div class="list">
+        <h2><a class="title password">TRACK ORDER</a></h2>
+      <label class="item item-input item-floating-label" ng-hide="tc.IsVisible">
+        <span class="input-label">Order number</span>
+        <input type="text" ng-model="tc.order" name="order" placeholder="Order number" required/>
+        <p ng-show="trackOrder.order.$invalid && !trackOrder.order.$pristine && trackOrder.order.$error.required" class="help-block"><span class="min-valid">This is a required field.</span></p>
+      </label>
+      
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Email address</span>
+        <input type="email" name="email" ng-model="tc.email" placeholder="Email address" required/>
+         <p ng-show="trackOrder.email.$invalid && !trackOrder.email.$pristine && trackOrder.email.$error.required" class="help-block"><span class="min-valid">This is a required field.</span></p>
+      <p ng-show="trackOrder.email.$invalid && !trackOrder.email.$pristine && trackOrder.email.$error.email" class="help-block"><span class="min-valid">Please enter a valid email.</span></p>
+      </label>
+     
+    </div>
+    <div>
+    <label class="input-label has-input" style="width:50% ;color:#000">
+          Forgot your order number ?
+    </label>
+    <input type="checkbox" ng-model="tc.trackOrder" style="width:50%"  ng-change="tc.ShowHide()" />
+  </div>
+    <div class="button-bar" style="padding-top:75px">
+      <a class="button button-dark" ui-sref="app.profile">Cancel</a>
+      <button class="button button-positive" ng-disabled="trackOrder.$invalid" ng-click="ps.add()">Track</button>
+    </div>
+  </form>
+  </ion-content>
+</ion-view>

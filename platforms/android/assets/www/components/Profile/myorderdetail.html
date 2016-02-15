@@ -1,0 +1,89 @@
+<ion-view view-title="My Order" ng-controller="orderDetailCtrl as odc">
+<ion-nav-title >
+        <a ui-sref="app.banner" href="javascript:;" ><img src="img/icon-small.png" class="appLogo"/></a>
+  </ion-nav-title>
+  <ion-nav-buttons side="right">
+    <div class="searchBar" >
+      <i class="icon ion-android-more-vertical" ng-click="popover.show($event)" style="float:right;padding:0px 15px;"></i>
+      <i ng-click="odc.goToCart()" class="icon ion-android-cart" style="float:right;padding:0px 15px;"><span class="badge badge-assertive cbadge" ng-if="odc       .cartTotal" style="margin-left:0px!important;">{{odc.cartTotal}}</span></i>
+    </div>
+</ion-nav-buttons>
+  <ion-content class="forgot">
+       <!-- Top Heading -->
+       <div class="bar bar-header bar-dark" style="float:left;width:100%;top: -20px;">
+          <h1 class="title">My Order Detail</h1>
+        </div>
+        <div class="list card" style="top: 34px; bottom:0px;">
+          <div class="item">
+            <h2>Order:- #{{odc.orderDetail.increment_id}} - {{odc.orderDetail.status | uppercase}}</h2>
+            <p>Order Date:- {{odc.orderDetail.created_at | date:'medium'}}<p>
+            <p>Total Quantity Ordered:- {{odc.orderDetail.total_qty_ordered | number}}<p>
+            <p>Total Weight Of Cart:- {{odc.orderDetail.weight | number}}</p>
+          </div>
+
+          <div class="item" ng-if="odc.orderDetail.billing_address">
+            <h2>Billing Address</h2>
+            <p>Firstname: {{odc.orderDetail.billing_address.firstname}}</p>
+            <p>Lastname: {{odc.orderDetail.billing_address.lastname}}</p>
+            <p>Company: {{odc.orderDetail.billing_address.company}}</p>
+            <p>Street: {{odc.orderDetail.billing_address.street}}</p>
+            <p>City: {{odc.orderDetail.billing_address.city}}</p>
+            <p>State: {{odc.orderDetail.billing_address.region}}</p>
+            <p>Countory: {{odc.orderDetail.billing_address.firstname}}</p>
+            <p>Postcode: {{odc.orderDetail.billing_address.postcode}}</p>
+            <p>Telephone: {{odc.orderDetail.billing_address.telephone}}</p>
+            <p>Fax: {{odc.orderDetail.billing_address.fax}}</p>
+          </div>
+
+          <div class="item" ng-if="odc.orderDetail.shipping_address">
+            <h2>Shipping Address</h2>
+            <p>Firstname: {{odc.orderDetail.shipping_address.firstname}}</p>
+            <p>Lastname: {{odc.orderDetail.shipping_address.lastname}}</p>
+            <p>Company: {{odc.orderDetail.shipping_address.company}}</p>
+            <p>Street: {{odc.orderDetail.shipping_address.street}}</p>
+            <p>City: {{odc.orderDetail.shipping_address.city}}</p>
+            <p>State: {{odc.orderDetail.shipping_address.region}}</p>
+            <p>Country: {{odc.orderDetail.shipping_address.firstname}}</p>
+            <p>Postcode: {{odc.orderDetail.shipping_address.postcode}}</p>
+            <p>Telephone: {{odc.orderDetail.shipping_address.telephone}}</p>
+            <p>Fax: {{odc.orderDetail.shipping_address.fax}}</p>
+          </div>
+
+          <div class="item">
+            <h2>Shipping Method</h2>
+            <p>{{odc.orderDetail.shipping_description}}</p>
+          </div>
+
+          <div class="item" ng-if="odc.orderDetail.payment">
+            <h2>Payment Method</h2>
+            <p>{{odc.orderDetail.payment.method_title | uppercase}}</p>
+          </div>
+
+          <div class="list" style="margin-bottom:20px; float:left;width:100%;" ng-if="odc.orderDetail.items">
+            <div class="card orderProduct" ng-repeat="x in odc.orderDetail.items" >
+              <a class="item item-thumbnail-left" href="#" style="border:none !important;">
+              <img src="img/no-thumb.png" ng-src="{{x.image}}"/>
+              </a>
+              <div class="content"> 
+              <h2>{{x.name}}</h2>
+              <!-- <p ng-if="x.options" ng-repeat="y in x.options"><b>{{y.label}} :</b> {{y.value | uppercase}}</p> -->
+              <p>Price: {{x.price | currency}}</p>
+              <p>Quantity: {{x.qty_ordered | number}}</p>
+              <p>Weight Of Product: {{x.weight | number}}</p>
+              </div>
+            </div>
+        </div>
+
+          <div class="item">
+            <p>Subtotal:- {{odc.orderDetail.subtotal | currency}}</p>
+            <p>Shipping & Handling Charges:- {{odc.orderDetail.shipping_amount | currency}}</p>
+            <p>Grand Total:- {{odc.orderDetail.grand_total | currency}}</p>
+          </div>
+
+        </div>
+        
+  </ion-content>
+</ion-view>
+
+
+

@@ -1,0 +1,59 @@
+<ion-view view-title="Product" ng-controller="productCompareCtrl as pCd">
+    <ion-nav-title >
+        <a ui-sref="app.banner" href="javascript:;" ><img src="img/icon-small.png" class="appLogo"/></a>
+  </ion-nav-title>
+  <ion-nav-buttons side="right">
+    <div class="searchBar" >
+      <i class="icon ion-android-more-vertical" ng-click="popover.show($event)" style="float:right;padding:0px 15px;"></i>
+      <i ng-click="pCd.goToCart()" class="icon ion-android-cart" style="float:right;padding:0px 15px;"><span class="badge badge-assertive cbadge" ng-if="pCd.cartTotal" style="margin-left:0px!important;">{{pCd.cartTotal}}</span></i>
+    </div>
+</ion-nav-buttons>
+    
+  <ion-content>
+  <div style="float:left; widht:100%;">
+      <div class="row productCompare">
+        <div ng-if="pCd.pCOData" class="col">
+          <div class="card">
+          <p><img  src="img/no-thumb.png" ng-src="{{pCd.pCOData.productimage[0].url}}" style="width:100%;"/><hr/></p>
+          <p><span>Name</span> {{pCd.pCOData.name}}</p>
+          <!--<p><span>Discount</span> {{pCd.pCOData.discount | number : 0}}% </p> -->
+          <p ng-if="pCd.pCOData.special_price"><span>Special Price</span> {{pCd.pCOData.price | currency}} - {{pCd.pCOData.special_price | currency}}</p>
+          <p ng-if="!pCd.pCOData.special_price"><span>Price</span> {{pCd.pCOData.price | currency}}</p>
+          <div ng-if="pCd.pCOData.optionid.length > 0" ng-repeat="x in pCd.pCOData.optionid">
+            <p><span>{{x.title}}</span> <label ng-repeat="y in pCd.pCOData.optionvalue[x.option_id]"> {{y.title}}, </label></p>
+          </div>
+          <h5 style="float: left; width: 100%;">Short Description</h5>
+           <div ng-bind-html=pCd.pCOData.short_description class="price_box"></div>
+          <h5 style="float: left; width: 100%;">Description</h5>
+           <div ng-bind-html=pCd.pCOData.description class="price_box"></div>
+        </div>
+        <button class="button button-full button-dark" ng-click="pCd.removeToCampare(pCd.pCOData.product_id)">Remove Here</button>
+        <button class="button button-full button-assertive" ng-click="pCd.addToCart(pCd.pCOData.product_id)">Add To Cart</button>
+        <button class="button button-full button-light" ng-click="pCd.addToWishlist(pCd.pCOData.product_id)">Add To Wishlist</button>
+        </div>
+        <div  ng-if="pCd.pCTData" class="col">
+          <div class="card">
+          <p><img  src="img/no-thumb.png" ng-src="{{pCd.pCTData.productimage[0].url}}" style="width:100%;"/><hr/></p>
+          <p><span>Name</span> {{pCd.pCTData.name}}</p>
+          <!-- <p><span>Discount</span> {{pCd.pCTData.discount | number : 0}}% </p> -->
+          <p ng-if="pCd.pCTData.special_price"><span>Special Price</span> {{pCd.pCTData.price | currency}} - {{pCd.pCTData.special_price | currency}}</p>
+          <p ng-if="!pCd.pCTData.special_price"><span>Price</span> {{pCd.pCTData.price | currency}}</p>
+          <p><span>Type</span> {{pCd.pCTData.type}}</p>
+          <p><span>Weight</span> {{pCd.pCTData.weight | number : 2}}</p>
+          <div ng-if="pCd.pCTData.optionid.length > 0" ng-repeat="x in pCd.pCTData.optionid">
+            <p><span>{{x.title}}</span> <label ng-repeat="y in pCd.pCTData.optionvalue[x.option_id]"> {{y.title}}, </label></p>
+          </div>
+          <h5 style="float: left; width: 100%;">Short Description</h5>
+              <div ng-bind-html=pCd.pCTData.short_description class="price_box"></div>
+          <h5 style="float: left; width: 100%;">Description</h5>
+              <div ng-bind-html=pCd.pCTData.description class="price_box"></div>
+        </div>
+        <button class="button button-full button-dark" ng-click="pCd.removeToCampare(pCd.pCTData.product_id)">Remove Here</button>
+        <button class="button button-full button-assertive" ng-click="pCd.addToCart(pCd.pCTData.product_id)">Add To Cart</button>
+        <button class="button button-full button-positive" ng-click="pCd.addToWishlist(pCd.pCTData.product_id)">Add To Wishlist</button>
+        </div>
+       </div>
+      </div>
+  </div>
+  </ion-content>
+</ion-view>

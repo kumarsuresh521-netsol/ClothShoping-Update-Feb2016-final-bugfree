@@ -1,0 +1,40 @@
+<ion-view view-title="Order Review" ng-controller="orderReviewCtrl as por">
+    <ion-nav-title >
+        <a ui-sref="app.banner" href="javascript:;" ><img src="img/icon-small.png" class="appLogo"/></a>
+  </ion-nav-title>
+    <ion-nav-buttons side="right">
+<!-- User Section -->
+    <div class="searchBar" >
+      <i class="icon ion-android-more-vertical" ng-click="popover.show($event)" style="float:right;padding:0px 15px;"></i>
+    </div>
+</ion-nav-buttons>
+  <ion-content  padding="true" class="has-header" scroll="true">
+    <div class="bar bar-header bar-dark">
+      <h1 class="title">Order Review</h1>
+    </div>
+<div style="width:100%; height:50px;"></div>
+<div class="card" style="margin-bottom:20px;">
+      <div ng-repeat="x in por.cartProducts.products" >
+        <a class="item item-thumbnail-left" href="#" >
+              <img src="img/product2.png" ng-src="{{x.small_image}}"/>
+              <h2>{{x.name}}</h2>
+              <p ng-if="x.options" ng-repeat="y in x.options"><b>{{y.label}} :</b> {{y.value | uppercase}}</p>
+                <div class="price" style="loat: LEFT; font-size: 20px;font-weight: 900;color: #6FD0D6;margin: 5px 0px 20px 0;">{{x.price | currency}}</div>
+                 <div class="pull-left" style="margin-top: 15px;">
+                    {{x.qty}}
+                    <div class="price" style="float:right; ">{{x.subTotal | currency}}</div>
+                </div>   
+         </a>
+       </div>
+       <div  style="margin-top:20px;" ng-if="por.cartProducts" class="item item-text-wrap" >
+        <div ng-repeat="x in por.cartProducts" ng-if="x.title" style="width:100%;">
+          <span style="float:left;width:80%;">{{x.title}}</span> <span style="float:right;width:20%;">{{x.amount | currency}}</span>
+        </div>
+      </div>
+</div>
+    
+  </ion-content>
+  <ion-footer-bar>
+            <button class="button button-full button-assertive icon-right ion-chevron-right" style="color: #fff;margin:0px;" ng-click="por.GoToSuccess()">Place Order</button>
+  </ion-footer-bar>
+</ion-view>
